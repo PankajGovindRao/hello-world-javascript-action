@@ -10,5 +10,5 @@ jobs:
     - uses: actions/checkout@master
     - uses: PankajGovindRao/hello-world-javascript-action@main
       with:
-        who-to-greet:"Pankaj"
+        who-to-greet: 'Pankaj'
         
