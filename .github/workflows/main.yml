@@ -1,0 +1,14 @@
+on: 
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  Hello-World:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: PankajGovindRao/hello-world-javascript-action@main
+      with:
+        who-to-greet:"Pankaj"
+        
