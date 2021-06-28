@@ -1,16 +1,15 @@
-on: 
-  workflow_dispatch:
+name: Master
+on:
   push:
-    branches: [ main ]
+    branches:
+      - master
   schedule:
-    - cron:  '*/1 * * * *'  
-
+    - cron: '*/1 * * * *'
 jobs:
-  Hello-World:
+  build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - uses: PankajGovindRao/hello-world-javascript-action@main
-      with:
-        who-to-greet: 'Pankaj Rao'
-        
+    - uses: actions/checkout@v1
+    - name: Running
+      run: |
+        echo "Running!" 
