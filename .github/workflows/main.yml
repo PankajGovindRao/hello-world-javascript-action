@@ -7,6 +7,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Slack Notification
-      uses: PankajGovindRao/action-slack-notify@v2
+      uses: PankajGovindRao/hello-world-javascript-action@main
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
