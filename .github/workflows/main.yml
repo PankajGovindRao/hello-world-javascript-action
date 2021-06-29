@@ -11,7 +11,7 @@ jobs:
         uses: PankajGovindRao/hello-world-javascript-action@main
         id: notify
         with:
-          channel: 'D023ZJ4R45R'
+          channel: 'https://app.slack.com/client/T0CA8C346/D023ZJ4R45R'
           text: Hello! test
         
         
