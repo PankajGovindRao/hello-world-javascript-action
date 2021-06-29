@@ -11,9 +11,8 @@ jobs:
         uses: PankajGovindRao/hello-world-javascript-action@main
         id: notify
         with:
-          pankaj: ${{ secrets.PANKAJ }}
-          slack-channel: D023ZJ4R45R
-          slack-text: Hello! test
-      - name: Result from "Send Message"
-        run: echo hello
+          channel: D023ZJ4R45R
+          text: Hello! test
+        
+        
 
