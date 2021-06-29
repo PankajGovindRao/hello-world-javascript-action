@@ -1,8 +1,6 @@
-name: Slack Notification
+name: slack-notification
 
-on:
-  pull_request:
-    branches: [ master ]
+on: [push, pull_request, issues]
 
 jobs:
   notifySlack:
