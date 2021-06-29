@@ -13,7 +13,7 @@ jobs:
         with:
           pankaj: ${{ secrets.PANKAJ }}
           slack-channel: D023ZJ4R45R
-          slack-text: Hello! Event '${{ github.event_name }}' in '${{ github.repository }}'
+          slack-text: Hello! test
       - name: Result from "Send Message"
-        run: echo 'The result was ${{ steps.notify.outputs.slack-result }}'
+        run: echo hello
 
