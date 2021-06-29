@@ -3,14 +3,17 @@ name: slack-notification
 on: [push, pull_request, issues]
 
 jobs:
-  notifySlack:
-
+  slack-notifications:
     runs-on: ubuntu-latest
-
+    name: Sends a message to Slack when a push, a pull request or an issue is made
     steps:
-    - name: Notify slack
-      env:
-        pankaj: ${{ secrets.pankaj }}
-      uses: PankajGovindRao/hello-world-javascript-action@main
-      with:
-        args: '{\"channel\":\"D023ZJ4R45R\",\"blocks\":[{\"type\":\"section\",\"text\":{\"type\":\"mrkdwn\",\"text\":\"*Pull Request:* ${{ github.event.pull_request.title }}\"}},{\"type\":\"section\",\"text\":{\"type\":\"mrkdwn\",\"text\":\"*Who?:* ${{ github.event.pull_request.user.login }}\n*Request State:* ${{ github.event.pull_request.state }}\"}},{\"type\":\"section\",\"text\":{\"type\":\"mrkdwn\",\"text\":\"<${{ github.event.pull_request.html_url }}|View Pull Request>\"}}]}'
+      - name: Send message to Slack API
+        uses: PankajGovindRao/hello-world-javascript-action@main
+        id: notify
+        with:
+          pankaj: ${{ secrets.PANKAJ }}
+          slack-channel: D023ZJ4R45R
+          slack-text: Hello! Event "${{ github.event_name }}" in "${{ github.repository }}" 🤓
+      - name: Result from "Send Message"
+        run: echo "The result was ${{ steps.notify.outputs.slack-result }}"
+
