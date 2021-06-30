@@ -1,3 +1,12 @@
+- name: Post to slack on failure
+      if: failure()
+      uses: 8398a7/action-slack@v3.9.1
+      with:
+        status: ${{ job.status }}
+        fields: repo,message,author,action,ref,workflow
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
 name: slack-notification
 
 on: [push, pull_request, issues]
@@ -7,12 +16,15 @@ jobs:
     runs-on: ubuntu-latest
     name: Sends a message to Slack when a push, a pull request or an issue is made
     steps:
-      - name: Notify slack
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-        uses: PankajGovindRao/hello-world-javascript-action@main
-        with:
-          args: '{\"channel\":\"D023ZJ4R45R\",\"text\":\"Hello world\"}'
+    - name: Check out source code
+        uses: actions/checkout@v1
+      - name: Post to slack on failure
+      uses: 8398a7/action-slack@v3.9.1
+      with:
+        status: ${{ job.status }}
+        fields: repo,message,author,action,ref,workflow
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         
         
 
