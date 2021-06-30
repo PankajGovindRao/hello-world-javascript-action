@@ -7,12 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     name: Sends a message to Slack when a push, a pull request or an issue is made
     steps:
-      - name: Send message to Slack API
+      - name: Notify slack
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         uses: PankajGovindRao/hello-world-javascript-action@main
-        id: notify
         with:
-          channel: 'pankaj.raomca@gmail.com'
-          text: Hello! test
+          args: '{\"channel\":\"D023ZJ4R45R\",\"text\":\"Hello world\"}'
         
         
 
