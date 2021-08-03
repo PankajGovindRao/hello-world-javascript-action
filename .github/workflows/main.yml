@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: "Check OS Type"
         if: ${{ env.OS == 'Linux' || env.OS == 'Window' }}
-        run: echo "$OS OS!"
+        run: echo "$OS OS! $RUNNER_OS"
         env:
           OS: Window
           
