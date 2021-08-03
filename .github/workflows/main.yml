@@ -15,7 +15,8 @@ jobs:
           FIRST_NAME: Mona
           middle_name: The
           Last_Name: Octocat
-      - name: ${{ env }}   
+      - name: "test" 
+        run: ${{ env }}
       
         
 
