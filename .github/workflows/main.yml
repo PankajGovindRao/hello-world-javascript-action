@@ -15,8 +15,9 @@ jobs:
           FIRST_NAME: Mona
           middle_name: The
           Last_Name: Octocat
-      - name: "test" 
-        run: ${{ env }}
+      - uses: PankajGovindRao/hello-world-javascript-action@main
+        with:
+          who-to-greet: 'Pankaj Rao ${{ env }}' 
       
         
 
