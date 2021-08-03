@@ -6,13 +6,14 @@ jobs:
   weekday_job:
     runs-on: ubuntu-latest
     env:
-      OS: Linux
+      RUNNER_OS: $RUNNER_OS
     steps:
       - name: "Check OS Type"
         if: ${{ env.OS == 'Linux' || env.OS == 'Window' }}
         run: echo "$OS OS! $RUNNER_OS"
         env:
-          OS: Window
+          RUNNER_OS: Window
+    
           
       
       
